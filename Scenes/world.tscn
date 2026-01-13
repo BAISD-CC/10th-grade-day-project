@@ -1,18 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvijlt4b3c1c7"]
+[gd_scene load_steps=5 format=3 uid="uid://dvijlt4b3c1c7"]
 
 [ext_resource type="PackedScene" uid="uid://qi7lac0jxkm6" path="res://Objects/player.tscn" id="1_a02cp"]
 [ext_resource type="Texture2D" uid="uid://bs6j50bwn6lm5" path="res://icon.svg" id="2_go701"]
 [ext_resource type="PackedScene" uid="uid://cdjx5784kmo0t" path="res://Objects/HUD-SCORE.tscn" id="3_5a7ea"]
+[ext_resource type="Script" uid="uid://d4ahmw0x7hgsm" path="res://Scripts/WorldGen.gd" id="4_8j60k"]
 
 [node name="World" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_a02cp")]
-position = Vector2(563, 743)
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(178, 443)
+position = Vector2(-314, -273)
 texture = ExtResource("2_go701")
 
 [node name="Heads Up Display" type="CanvasLayer" parent="."]
 
 [node name="HudScore" parent="Heads Up Display" instance=ExtResource("3_5a7ea")]
+
+[node name="WorldGen" type="Node" parent="."]
+script = ExtResource("4_8j60k")
