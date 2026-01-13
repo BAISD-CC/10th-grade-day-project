@@ -5,6 +5,7 @@ func _physics_process(delta: float) -> void:
 	var direction := Vector2.ZERO
 	if Input.is_action_just_pressed('up'):
 		direction = Vector2(0,-1)
+		Global.score +=1
 		_move(direction)
 	elif Input.is_action_just_pressed("down"):
 		direction = Vector2(0,1)
