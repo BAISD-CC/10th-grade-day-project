@@ -2,6 +2,7 @@ extends CharacterBody2D
 var is_moving:=false
 
 func _physics_process(delta: float) -> void:
+	position.y -= 128 * delta
 	var direction := Vector2.ZERO
 	if Input.is_action_just_pressed('up'):
 		direction = Vector2(0,-1)

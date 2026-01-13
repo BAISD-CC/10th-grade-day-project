@@ -1,3 +1,14 @@
-[gd_scene format=3 uid="uid://8r4xyti1hdm4"]
+[gd_scene load_steps=3 format=3 uid="uid://8r4xyti1hdm4"]
+
+[ext_resource type="Script" uid="uid://dvbd0o14pvgjq" path="res://Scripts/road.gd" id="1_7xdx7"]
+[ext_resource type="Texture2D" uid="uid://bjrb6v0mbbita" path="res://Assets/World/Roads/road_normal.png" id="1_estau"]
 
 [node name="Road1" type="Node2D"]
+script = ExtResource("1_7xdx7")
+
+[node name="RoadNormal" type="Sprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(1, 0)
+texture = ExtResource("1_estau")
+centered = false
