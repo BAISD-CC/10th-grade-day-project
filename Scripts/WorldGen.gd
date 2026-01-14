@@ -2,6 +2,8 @@ extends Node2D
 @export var chunks:Array[PackedScene] 
 @onready var generate: Timer = $generate
 @onready var roads: Node2D = $"../Roads"
+@onready var main_camera: Camera2D = $"../MainCamera"
+
 var highest_row := 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,4 +15,5 @@ func _time_to_generate() -> void:
 	chunk_instance.position.y = highest_row * Global.distance_between_roads[randi() %6]
 	roads.add_child(chunk_instance)
 	highest_row +=1
+	chunk_instance.count +=1
 	
