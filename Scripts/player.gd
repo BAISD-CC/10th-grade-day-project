@@ -15,7 +15,7 @@ func move(dir:Vector2):
 		return
 	targetPos += dir * Global.tileSize
 	moving = true
-	
+#if we wanted to move with arrow key this is where we'd do it, with event
 func _input(event):
 	if event.is_action_pressed("up"):
 		move(Vector2.UP)

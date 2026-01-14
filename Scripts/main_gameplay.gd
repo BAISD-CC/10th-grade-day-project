@@ -7,5 +7,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	Global.score = -player.position.y / 128 + 4
+	Global.score = -player.position.y / 128 + 4  #fixes the offset 
 	

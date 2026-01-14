@@ -45,3 +45,11 @@ offset_left = -9.0
 offset_top = 1.0
 offset_right = -9.0
 offset_bottom = 1.0
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="Left" type="Marker2D" parent="Markers"]
+position = Vector2(0, 64)
+
+[node name="Right" type="Marker2D" parent="Markers"]
+position = Vector2(0, 64)
