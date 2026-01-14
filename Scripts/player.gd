@@ -17,9 +17,11 @@ func move(dir:Vector2):
 	moving = true
 	
 func _input(event):
-	if event.is_action_pressed("ui_up"):
+	if event.is_action_pressed("up"):
 		move(Vector2.UP)
-	elif event.is_action_pressed("ui_left"):
+	elif event.is_action_pressed("left"):
 		move(Vector2.LEFT)
-	elif event.is_action_pressed("ui_right"):
+	elif event.is_action_pressed("right"):
 		move(Vector2.RIGHT)
+	elif event.is_action_pressed("down"):
+		move(Vector2.DOWN)

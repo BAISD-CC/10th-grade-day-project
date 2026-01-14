@@ -16,3 +16,6 @@ position = Vector2(-360.19122, 499.30164)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea"]
 position = Vector2(364.19122, -21.301636)
 shape = SubResource("RectangleShape2D_o06y3")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
