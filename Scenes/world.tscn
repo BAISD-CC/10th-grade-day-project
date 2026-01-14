@@ -6,16 +6,25 @@
 [ext_resource type="PackedScene" uid="uid://c5k34efuows6u" path="res://Objects/World/camera.tscn" id="3_o06y3"]
 [ext_resource type="Script" uid="uid://d4ahmw0x7hgsm" path="res://Scripts/WorldGen.gd" id="4_8j60k"]
 [ext_resource type="PackedScene" uid="uid://8r4xyti1hdm4" path="res://Objects/World/Road1.tscn" id="5_fo5ed"]
-[ext_resource type="Texture2D" uid="uid://bs6j50bwn6lm5" path="res://icon.svg" id="7_o06y3"]
+[ext_resource type="Texture2D" uid="uid://cq2i57ancwp5m" path="res://Assets/TitleScreen/BG.jpeg" id="7_o06y3"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_k7acu")
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(1.1, 1.1)
+repeat_size = Vector2(128, 128)
+repeat_times = 20
+
+[node name="Bg" type="Sprite2D" parent="Parallax2D"]
+texture = ExtResource("7_o06y3")
+centered = false
 
 [node name="Roads" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("1_a02cp")]
 top_level = true
-position = Vector2(640, 360)
+position = Vector2(640, 592)
 
 [node name="MainCamera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_o06y3")]
 position = Vector2(640, 0)
@@ -36,7 +45,3 @@ offset_left = -9.0
 offset_top = 1.0
 offset_right = -9.0
 offset_bottom = 1.0
-
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(100, 316)
-texture = ExtResource("7_o06y3")
