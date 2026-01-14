@@ -1,9 +1,54 @@
-[gd_scene format=3 uid="uid://ctu2shknp0wmt"]
+[gd_scene load_steps=3 format=3 uid="uid://ctu2shknp0wmt"]
 
-[node name="Control" type="Control"]
+[ext_resource type="Theme" uid="uid://dbo0bxjimd7u1" path="res://Themes/Main_Theme.tres" id="1_67rak"]
+[ext_resource type="Texture2D" uid="uid://cq2i57ancwp5m" path="res://Assets/TitleScreen/BG.jpeg" id="2_7q6gp"]
+
+[node name="Title" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+repeat_size = Vector2(128, 127)
+autoscroll = Vector2(15, 15)
+repeat_times = 20
+
+[node name="Bg" type="Sprite2D" parent="Parallax2D"]
+texture = ExtResource("2_7q6gp")
+centered = false
+
+[node name="Title" type="Label" parent="."]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 0
+offset_left = 128.0
+offset_top = 142.0
+offset_right = 754.0
+offset_bottom = 247.0
+rotation = -0.15966453
+theme = ExtResource("1_67rak")
+text = "Legally Distinct
+								 Crossy  Road"
+
+[node name="GridContainer" type="GridContainer" parent="."]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 0
+offset_left = 360.0
+offset_top = 271.0
+offset_right = 485.0
+offset_bottom = 315.0
+theme = ExtResource("1_67rak")
+
+[node name="Play" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_67rak")
+text = "Play"
+
+[node name="About" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_67rak")
+text = " about "
