@@ -1,25 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5k34efuows6u"]
+[gd_scene load_steps=2 format=3 uid="uid://c5k34efuows6u"]
 
 [ext_resource type="Script" uid="uid://dfy4g3s86dsmp" path="res://Scripts/camera.gd" id="1_vucnh"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o06y3"]
-size = Vector2(1282, 243.39673)
 
 [node name="MainCamera" type="Camera2D"]
 top_level = true
 limit_enabled = false
 script = ExtResource("1_vucnh")
 
-[node name="DeathArea" type="Area2D" parent="."]
-position = Vector2(-360.19122, 499.30164)
-collision_layer = 8
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea"]
-position = Vector2(364.19122, -21.301636)
-shape = SubResource("RectangleShape2D_o06y3")
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
-
-[connection signal="area_entered" from="DeathArea" to="." method="_on_death_area_area_entered"]

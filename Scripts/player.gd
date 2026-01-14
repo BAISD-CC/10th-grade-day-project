@@ -23,5 +23,4 @@ func _input(event):
 		move(Vector2.LEFT)
 	elif event.is_action_pressed("right"):
 		move(Vector2.RIGHT)
-	elif event.is_action_pressed("down"):
-		move(Vector2.DOWN)
+	

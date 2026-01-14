@@ -26,12 +26,16 @@ script = ExtResource("4_8j60k")
 chunks = Array[PackedScene]([ExtResource("5_fo5ed")])
 
 [node name="generate" type="Timer" parent="Generator"]
-wait_time = 0.2
+wait_time = 0.1
 autostart = true
 
 [node name="Heads Up Display" type="CanvasLayer" parent="."]
 
 [node name="HudScore" parent="Heads Up Display" instance=ExtResource("3_5a7ea")]
+offset_left = -9.0
+offset_top = 1.0
+offset_right = -9.0
+offset_bottom = 1.0
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(100, 316)

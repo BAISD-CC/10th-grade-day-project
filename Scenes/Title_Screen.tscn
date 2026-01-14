@@ -31,7 +31,20 @@ offset_bottom = 247.0
 rotation = -0.15966453
 theme = ExtResource("1_67rak")
 text = "Legally Distinct
-								 Crossy  Road"
+ Crossy  Road"
+
+[node name="Version" type="Label" parent="."]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 0
+offset_left = 730.0
+offset_top = 640.0
+offset_right = 1356.0
+offset_bottom = 745.0
+theme = ExtResource("1_67rak")
+text = "Version:1.0.0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="."]
 texture_filter = 1
@@ -39,8 +52,8 @@ texture_repeat = 1
 layout_mode = 0
 offset_left = 360.0
 offset_top = 271.0
-offset_right = 485.0
-offset_bottom = 315.0
+offset_right = 711.0
+offset_bottom = 501.0
 theme = ExtResource("1_67rak")
 
 [node name="Play" type="Button" parent="GridContainer"]
