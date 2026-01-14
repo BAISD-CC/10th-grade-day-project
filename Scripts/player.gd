@@ -1,28 +1,25 @@
 extends CharacterBody2D
-var is_moving:=false
+var targetPos:Vector2
+var moving :=false
+func _ready() -> void:
+	targetPos = global_position
 
-func _physics_process(delta: float) -> void:
-	position.y -= 128 * delta
-	var direction := Vector2.ZERO
-	if Input.is_action_just_pressed('up'):
-		direction = Vector2(0,-1)
-		Global.score +=1
-		_move(direction)
-	elif Input.is_action_just_pressed("down"):
-		direction = Vector2(0,1)
-		_move(direction)
-	elif Input.is_action_just_pressed("left"):
-		direction = Vector2(-1,0)
-		_move(direction)
-	elif Input.is_action_just_pressed("right"):
-		direction = Vector2(1,0)
-		_move(direction)
-func _move(dir:Vector2):
-	if(not is_moving):
-		is_moving
-		var tween = create_tween()
-		tween.tween_property(self, "position", position + dir*Global.tileSize * Global.howManyTiles,0.2)
-		tween.tween_callback(_notMoving)
-		
-func _notMoving():
-	is_moving = false
+func _process(delta: float) -> void:
+
+	if moving:
+		global_position = global_position.move_toward(targetPos, 2000 * delta)
+		if global_position == targetPos:
+			moving=false
+func move(dir:Vector2):
+	if moving:
+		return
+	targetPos += dir * Global.tileSize
+	moving = true
+	
+func _input(event):
+	if event.is_action_pressed("ui_up"):
+		move(Vector2.UP)
+	elif event.is_action_pressed("ui_left"):
+		move(Vector2.LEFT)
+	elif event.is_action_pressed("ui_right"):
+		move(Vector2.RIGHT)
