@@ -17,3 +17,22 @@ texture = ExtResource("1_y0qk3")
 position = Vector2(0, -64)
 shape = SubResource("RectangleShape2D_3y5cq")
 disabled = true
+
+[node name="LogChecks" type="Node2D" parent="."]
+
+[node name="Foward" type="RayCast2D" parent="LogChecks"]
+position = Vector2(0, -64)
+scale = Vector2(5, 1)
+target_position = Vector2(0, -128)
+
+[node name="Left" type="RayCast2D" parent="LogChecks"]
+position = Vector2(0, -64)
+rotation = -1.5707964
+scale = Vector2(5, 1)
+target_position = Vector2(0, -128)
+
+[node name="Right" type="RayCast2D" parent="LogChecks"]
+position = Vector2(0, -64)
+rotation = 1.5707964
+scale = Vector2(5, 1)
+target_position = Vector2(0, -128)
