@@ -1,22 +1,14 @@
-extends CharacterBody2D
+extends car
 class_name log
+var player_in_log = false
 
-var SPEED = 500
-var dir = 1
-var facing_right = true
-
-func _ready() -> void:
-	if dir ==1:
-		scale.x = abs(scale.x) * 1
-		facing_right = true
-	else:
-		scale.x = abs(scale.x) * -1
-		facing_right = false
-func _physics_process(delta: float) -> void:
-	velocity.x =SPEED  * dir  + Global.score
-	
-	if facing_right and position.x >1280:
-		queue_free()
-	elif not facing_right and position.x < 0:
-		queue_free()
-	move_and_slide()
+func player_enters_log(body: Node2D) -> void:
+	if body is Player and not body.moving:
+		player_in_log = true
+		var player:Player = body
+		player.emit_signal("log",velocity.x)
+func _on_jump_box_body_exited(body: Node2D) -> void:
+	if body is Player and not body.moving:
+		player_in_log = false
+		var player:Player = body
+		player.emit_signal("offLog",)

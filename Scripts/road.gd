@@ -1,5 +1,5 @@
 extends Node2D
-
+class_name road
 const maxAmountRoads = 100
 
 static var counter := 0

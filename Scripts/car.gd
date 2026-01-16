@@ -1,10 +1,9 @@
 extends CharacterBody2D
 class_name car
 
-var SPEED = 500
+@export var SPEED = 500
 var dir = 1
 var facing_right = true
-
 func _ready() -> void:
 	if dir ==1:
 		scale.x = abs(scale.x) * 1
@@ -22,3 +21,5 @@ func _physics_process(delta: float) -> void:
 	
 	
 	move_and_slide()
+
+	
