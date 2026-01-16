@@ -1,14 +1,13 @@
 extends car
 class_name log
-var player_in_log = false
 
 func player_enters_log(body: Node2D) -> void:
-	if body is Player and not body.moving:
-		player_in_log = true
+	if body is Player:
 		var player:Player = body
-		player.emit_signal("log",velocity.x)
+		player.onLog = true
+		player.currentLog = self
 func _on_jump_box_body_exited(body: Node2D) -> void:
-	if body is Player and not body.moving:
-		player_in_log = false
+	if body is Player:
 		var player:Player = body
-		player.emit_signal("offLog",)
+		player.onLog = false
+		player.currentLog = null
