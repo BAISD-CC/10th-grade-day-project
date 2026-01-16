@@ -14,7 +14,7 @@ collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_3y5cq")
 
-[node name="Icon" type="Sprite2D" parent="."]
+[node name="PlayerSprite" type="Sprite2D" parent="."]
 position = Vector2(0, -64)
 texture = ExtResource("1_y0qk3")
 
@@ -24,6 +24,8 @@ shape = SubResource("RectangleShape2D_3y5cq")
 disabled = true
 
 [node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(0, -64)

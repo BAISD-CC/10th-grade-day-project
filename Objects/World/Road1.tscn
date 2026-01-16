@@ -1,10 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://8r4xyti1hdm4"]
+[gd_scene load_steps=4 format=3 uid="uid://8r4xyti1hdm4"]
 
 [ext_resource type="Script" uid="uid://dvbd0o14pvgjq" path="res://Scripts/road.gd" id="1_7xdx7"]
 [ext_resource type="Texture2D" uid="uid://bjrb6v0mbbita" path="res://Assets/World/Roads/road_normal.png" id="1_estau"]
+[ext_resource type="PackedScene" uid="uid://hs1xpo1ok3t3" path="res://Objects/World/Car.tscn" id="2_mnqff"]
 
-[node name="Road1" type="Node2D"]
+[node name="Road1" type="Node2D" node_paths=PackedStringArray("timer", "markers")]
 script = ExtResource("1_7xdx7")
+timer = NodePath("Timer")
+markers = NodePath("Markers")
+object = ExtResource("2_mnqff")
 
 [node name="RoadNormal" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -13,7 +17,7 @@ texture = ExtResource("1_estau")
 centered = false
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
+autostart = true
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(10, 10)

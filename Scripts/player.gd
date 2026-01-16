@@ -1,9 +1,11 @@
 extends CharacterBody2D
 var targetPos:Vector2
 var moving :=false
+@onready var player_sprite: Sprite2D = $PlayerSprite
+var sprite_preload = preload("res://icon.svg")
 func _ready() -> void:
 	targetPos = global_position
-
+	player_sprite.texture = sprite_preload
 func _process(delta: float) -> void:
 
 	if moving:
@@ -15,12 +17,16 @@ func move(dir:Vector2):
 		return
 	targetPos += dir * Global.tileSize
 	moving = true
+	
 #if we wanted to move with arrow key this is where we'd do it, with event
 func _input(event):
 	if event.is_action_pressed("up"):
 		move(Vector2.UP)
+		player_sprite.rotation_degrees = 0
 	elif event.is_action_pressed("left"):
 		move(Vector2.LEFT)
+		player_sprite.rotation_degrees = 90
 	elif event.is_action_pressed("right"):
 		move(Vector2.RIGHT)
+		player_sprite.rotation_degrees = -90
 	

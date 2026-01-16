@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dtm0xtl0yvaip"]
+[gd_scene load_steps=6 format=3 uid="uid://dtm0xtl0yvaip"]
 
 [ext_resource type="Shader" uid="uid://bgcghgrwjj8hb" path="res://Shaders/waterWavy.gdshader" id="1_cse5j"]
-[ext_resource type="Script" uid="uid://bqw5tlha0x8yf" path="res://Scripts/WaterSegment.gd" id="1_xxnp7"]
+[ext_resource type="Script" uid="uid://dvbd0o14pvgjq" path="res://Scripts/road.gd" id="1_xxnp7"]
+[ext_resource type="PackedScene" uid="uid://bh2iso4ekd6l1" path="res://Objects/World/WaterLog.tscn" id="2_tn8wv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xxnp7"]
 shader = ExtResource("1_cse5j")
@@ -9,8 +10,11 @@ shader = ExtResource("1_cse5j")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cse5j"]
 size = Vector2(1280, 128)
 
-[node name="Water1" type="Node2D"]
+[node name="Water1" type="Node2D" node_paths=PackedStringArray("timer", "markers")]
 script = ExtResource("1_xxnp7")
+timer = NodePath("Timer")
+markers = NodePath("Markers")
+object = ExtResource("2_tn8wv")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_xxnp7")

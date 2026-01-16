@@ -1,9 +1,17 @@
 extends CharacterBody2D
 
-
-var SPEED = 10
-var dir = 1
 @onready var timer: Timer = $Timer
+
+var SPEED = 5
+var dir = 1
+
+static var logCount = 0
+const maxLogs = 5
+func _ready() -> void:
+	if logCount < maxLogs:
+		logCount +=1
+	else:
+		queue_free()
 
 func _physics_process(delta: float) -> void:
 	position.x += SPEED * dir + (Global.score * 1.5) * delta
@@ -12,6 +20,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		scale.x = abs(scale.x) * -1
 func _on_timer_timeout() -> void:
-	get_parent().logCount -=1
+	logCount -=1
 	queue_free()
 	

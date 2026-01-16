@@ -8,18 +8,12 @@ var highest_row := 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	generate.timeout.connect(_time_to_generate)
-	Global.roadCount = 0
-func _time_to_generate() -> void:
 	
+func _time_to_generate() -> void:
 	var chunk :PackedScene= chunks[randi() % chunks.size()] # gives out a chunk between 0 and the index of the chunks array
 	var chunk_instance := chunk.instantiate()
 	chunk_instance.position.y = highest_row * Global.distance_between_roads[randi() %Global.distance_between_roads.size()]
-	if Global.roadCount <Global.maxAmountRoads:
-		roads.add_child(chunk_instance)
-		Global.roadCount +=1
-		print("Current Amount" + var_to_str(Global.roadCount))
-	else:
-		chunk_instance.queue_free()
+	roads.add_child(chunk_instance)
 	highest_row +=1
 	
 	
