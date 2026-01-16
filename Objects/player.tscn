@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://qi7lac0jxkm6"]
+[gd_scene load_steps=5 format=3 uid="uid://qi7lac0jxkm6"]
 
 [ext_resource type="Script" uid="uid://tolur6igiq5p" path="res://Scripts/player.gd" id="1_3y5cq"]
 [ext_resource type="Texture2D" uid="uid://bs6j50bwn6lm5" path="res://icon.svg" id="1_y0qk3"]
@@ -6,7 +6,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3y5cq"]
 size = Vector2(126, 126)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2i4gt"]
+size = Vector2(136, 132)
+
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_3y5cq")
 
 [node name="Icon" type="Sprite2D" parent="."]
@@ -18,21 +23,9 @@ position = Vector2(0, -64)
 shape = SubResource("RectangleShape2D_3y5cq")
 disabled = true
 
-[node name="LogChecks" type="Node2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="."]
 
-[node name="Foward" type="RayCast2D" parent="LogChecks"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(0, -64)
-scale = Vector2(5, 1)
-target_position = Vector2(0, -128)
-
-[node name="Left" type="RayCast2D" parent="LogChecks"]
-position = Vector2(0, -64)
-rotation = -1.5707964
-scale = Vector2(5, 1)
-target_position = Vector2(0, -128)
-
-[node name="Right" type="RayCast2D" parent="LogChecks"]
-position = Vector2(0, -64)
-rotation = 1.5707964
-scale = Vector2(5, 1)
-target_position = Vector2(0, -128)
+shape = SubResource("RectangleShape2D_2i4gt")
+debug_color = Color(0.69235945, 0.49715728, 1.92523e-07, 0.41960785)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://hs1xpo1ok3t3"]
+[gd_scene load_steps=5 format=3 uid="uid://hs1xpo1ok3t3"]
 
 [ext_resource type="Texture2D" uid="uid://cp2oyu463uyn6" path="res://Assets/World/Cars/sussy.png" id="1_rg7uh"]
 [ext_resource type="Script" uid="uid://bcp4x4ydms5xo" path="res://Scripts/car.gd" id="1_rxade"]
@@ -6,7 +6,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvu46"]
 size = Vector2(60, 58)
 
+[sub_resource type="Gradient" id="Gradient_rxade"]
+
 [node name="Car" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_rxade")
 
 [node name="Sussy" type="Sprite2D" parent="."]
@@ -17,10 +21,24 @@ texture = ExtResource("1_rg7uh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -31)
 shape = SubResource("RectangleShape2D_xvu46")
-disabled = true
+debug_color = Color(0.80260485, 0, 0.16947848, 0.41960785)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 4.0
 autostart = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-29, -34)
+preprocess = 1.4
+speed_scale = 1.1
+randomness = 0.5
+lifetime_randomness = 0.4
+gravity = Vector2(-300, -100)
+damping_min = 12.844
+damping_max = 23.853
+angle_min = -13.0
+scale_amount_min = 5.0
+scale_amount_max = 20.0
+color_ramp = SubResource("Gradient_rxade")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

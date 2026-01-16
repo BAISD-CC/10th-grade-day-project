@@ -12,6 +12,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		scale.x = abs(scale.x) * -1
 func _on_timer_timeout() -> void:
-	get_parent().carCount -=1
+	get_parent().logCount -=1
 	queue_free()
 	

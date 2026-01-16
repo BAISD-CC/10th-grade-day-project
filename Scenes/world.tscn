@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvijlt4b3c1c7"]
+[gd_scene load_steps=9 format=3 uid="uid://dvijlt4b3c1c7"]
 
 [ext_resource type="PackedScene" uid="uid://qi7lac0jxkm6" path="res://Objects/player.tscn" id="1_a02cp"]
 [ext_resource type="Script" uid="uid://caysva5qomdn2" path="res://Scripts/main_gameplay.gd" id="1_k7acu"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c5k34efuows6u" path="res://Objects/World/camera.tscn" id="3_o06y3"]
 [ext_resource type="Script" uid="uid://d4ahmw0x7hgsm" path="res://Scripts/WorldGen.gd" id="4_8j60k"]
 [ext_resource type="PackedScene" uid="uid://8r4xyti1hdm4" path="res://Objects/World/Road1.tscn" id="5_fo5ed"]
+[ext_resource type="PackedScene" uid="uid://dtm0xtl0yvaip" path="res://Objects/World/Water1.tscn" id="7_k7acu"]
 [ext_resource type="Texture2D" uid="uid://cq2i57ancwp5m" path="res://Assets/TitleScreen/BG.jpeg" id="7_o06y3"]
 
 [node name="World" type="Node2D"]
@@ -32,7 +33,7 @@ player = NodePath("../Player")
 
 [node name="Generator" type="Node2D" parent="."]
 script = ExtResource("4_8j60k")
-chunks = Array[PackedScene]([ExtResource("5_fo5ed")])
+chunks = Array[PackedScene]([ExtResource("5_fo5ed"), ExtResource("7_k7acu")])
 
 [node name="generate" type="Timer" parent="Generator"]
 wait_time = 0.1
