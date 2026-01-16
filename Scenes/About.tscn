@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://sv2p8v6q582g"]
+[gd_scene load_steps=4 format=3 uid="uid://sv2p8v6q582g"]
 
 [ext_resource type="Texture2D" uid="uid://cq2i57ancwp5m" path="res://Assets/TitleScreen/BG.jpeg" id="1_8rnfx"]
 [ext_resource type="Theme" uid="uid://dbo0bxjimd7u1" path="res://Themes/Main_Theme.tres" id="1_j0t0u"]
+[ext_resource type="Script" uid="uid://bd50vkj0d35eh" path="res://Scripts/about.gd" id="1_mh4jx"]
 
 [node name="About" type="Control"]
 layout_mode = 3
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_mh4jx")
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 repeat_size = Vector2(128, 127)
@@ -20,7 +22,7 @@ repeat_times = 20
 texture = ExtResource("1_8rnfx")
 centered = false
 
-[node name="Title" type="Label" parent="."]
+[node name="Text" type="Label" parent="."]
 texture_filter = 1
 texture_repeat = 1
 layout_mode = 0
@@ -34,7 +36,7 @@ text = "This game was created by Nickolas Weed-Cruz. A student from the BAISD Ca
 Hope you enjoy the game.. 8-10th graders"
 autowrap_mode = 2
 
-[node name="Play" type="Button" parent="."]
+[node name="Back" type="Button" parent="."]
 layout_mode = 0
 offset_left = -24.0
 offset_top = 652.0
@@ -42,3 +44,5 @@ offset_right = 327.0
 offset_bottom = 714.0
 theme = ExtResource("1_j0t0u")
 text = "Back"
+
+[connection signal="pressed" from="Back" to="." method="pressed_back"]
