@@ -20,6 +20,8 @@ func _process(delta: float) -> void:
 			moving=false
 	if onLog == true and currentLog:
 		global_position.x = currentLog.global_position.x
+	if global_position.x <0 or global_position.x > 1280:
+		emit_signal("death")
 func move(dir:Vector2):
 	if moving:
 		return
@@ -40,6 +42,7 @@ func _input(event):
 func died():
 	Global._save()
 	get_tree().change_scene_to_packed(whereToGoAfterLosing)
+
 
 
 func _entered_hurtbox(body: Node2D) -> void:

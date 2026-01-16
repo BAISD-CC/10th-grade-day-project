@@ -12,7 +12,7 @@ func _ready() -> void:
 func _time_to_generate() -> void:
 	var chunk :PackedScene= chunks[randi() % chunks.size()] # gives out a chunk between 0 and the index of the chunks array
 	var chunk_instance := chunk.instantiate()
-	chunk_instance.position.y = highest_row * Global.distance_between_roads[randi() %Global.distance_between_roads.size()]
+	chunk_instance.position.y = highest_row * -128
 	roads.add_child(chunk_instance)
 	highest_row +=1
 	
