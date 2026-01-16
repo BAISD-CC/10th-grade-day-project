@@ -1,7 +1,7 @@
 extends Control
 
-var main:=preload("res://Scenes/world.tscn")
-var about:=preload("res://Scenes/About.tscn")
+var main:=load("res://Scenes/world.tscn")
+var about:=load("res://Scenes/About.tscn")
 
 @onready var hi_score_display: Label = $"Hi-Score Display"
 
