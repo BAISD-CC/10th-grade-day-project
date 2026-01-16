@@ -31,5 +31,4 @@ position = Vector2(0, 64)
 [node name="Right" type="Marker2D" parent="Markers"]
 position = Vector2(1280, 64)
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

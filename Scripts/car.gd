@@ -4,7 +4,6 @@ class_name car
 var SPEED = 500
 var dir = 1
 var facing_right = true
-@onready var timer: Timer = $Timer
 
 func _ready() -> void:
 	if dir ==1:
@@ -23,6 +22,3 @@ func _physics_process(delta: float) -> void:
 	
 	
 	move_and_slide()
-func _on_timer_timeout() -> void:
-	queue_free()
-	

@@ -11,6 +11,7 @@ static var counter := 0
 var dir:int
 
 func _ready() -> void:
+	timer.timeout.connect(_on_timer_timeout)
 	dir = randi_range(0,1)
 	print(var_to_str(counter))
 	if counter < maxAmountRoads:
@@ -32,3 +33,4 @@ func _on_timer_timeout() -> void:
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
+	

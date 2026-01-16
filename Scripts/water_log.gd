@@ -1,25 +1,22 @@
 extends CharacterBody2D
+class_name log
 
-@onready var timer: Timer = $Timer
-
-var SPEED = 5
+var SPEED = 500
 var dir = 1
+var facing_right = true
 
-static var logCount = 0
-const maxLogs = 5
 func _ready() -> void:
-	if logCount < maxLogs:
-		logCount +=1
-	else:
-		queue_free()
-
-func _physics_process(delta: float) -> void:
-	position.x += SPEED * dir + (Global.score * 1.5) * delta
 	if dir ==1:
 		scale.x = abs(scale.x) * 1
+		facing_right = true
 	else:
 		scale.x = abs(scale.x) * -1
-func _on_timer_timeout() -> void:
-	logCount -=1
-	queue_free()
+		facing_right = false
+func _physics_process(delta: float) -> void:
+	velocity.x =SPEED  * dir  + Global.score
 	
+	if facing_right and position.x >1280:
+		queue_free()
+	elif not facing_right and position.x < 0:
+		queue_free()
+	move_and_slide()
