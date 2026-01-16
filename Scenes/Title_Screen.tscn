@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctu2shknp0wmt"]
+[gd_scene load_steps=4 format=3 uid="uid://ctu2shknp0wmt"]
 
+[ext_resource type="Script" uid="uid://cre5yjs4cctqo" path="res://Scripts/title_screen.gd" id="1_1v43j"]
 [ext_resource type="Theme" uid="uid://dbo0bxjimd7u1" path="res://Themes/Main_Theme.tres" id="1_67rak"]
 [ext_resource type="Texture2D" uid="uid://cq2i57ancwp5m" path="res://Assets/TitleScreen/BG.jpeg" id="2_7q6gp"]
 
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_1v43j")
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 repeat_size = Vector2(128, 127)
@@ -65,3 +67,6 @@ text = "Play"
 layout_mode = 2
 theme = ExtResource("1_67rak")
 text = " about "
+
+[connection signal="pressed" from="GridContainer/Play" to="." method="pressed_play"]
+[connection signal="pressed" from="GridContainer/About" to="." method="pressed_about"]

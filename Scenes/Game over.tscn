@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://65troksxitig"]
+
+[ext_resource type="Texture2D" uid="uid://cq2i57ancwp5m" path="res://Assets/TitleScreen/BG.jpeg" id="1_1fjoe"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+repeat_size = Vector2(128, 127)
+autoscroll = Vector2(15, 15)
+repeat_times = 20
+
+[node name="Bg" type="Sprite2D" parent="Parallax2D"]
+texture = ExtResource("1_1fjoe")
+centered = false
