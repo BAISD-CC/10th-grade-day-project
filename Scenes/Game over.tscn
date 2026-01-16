@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://65troksxitig"]
+[gd_scene load_steps=4 format=3 uid="uid://65troksxitig"]
 
 [ext_resource type="Texture2D" uid="uid://cq2i57ancwp5m" path="res://Assets/TitleScreen/BG.jpeg" id="1_1fjoe"]
+[ext_resource type="Script" uid="uid://b07tplvhfh4c" path="res://Scripts/game_over.gd" id="1_ei2jg"]
+[ext_resource type="Theme" uid="uid://dbo0bxjimd7u1" path="res://Themes/Main_Theme.tres" id="2_og3lb"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -9,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ei2jg")
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 repeat_size = Vector2(128, 127)
@@ -18,3 +21,40 @@ repeat_times = 20
 [node name="Bg" type="Sprite2D" parent="Parallax2D"]
 texture = ExtResource("1_1fjoe")
 centered = false
+
+[node name="GameOverText" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -193.0
+offset_top = -25.5
+offset_right = 193.0
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_og3lb")
+theme_override_font_sizes/font_size = 100
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="High Score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -386.0
+offset_top = 70.0
+offset_right = 376.0
+offset_bottom = 121.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_og3lb")
+text = "Current High Score:"
+horizontal_alignment = 1
+vertical_alignment = 1
