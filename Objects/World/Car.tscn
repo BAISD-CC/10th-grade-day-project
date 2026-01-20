@@ -1,10 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://hs1xpo1ok3t3"]
 
-[ext_resource type="Texture2D" uid="uid://cp2oyu463uyn6" path="res://Assets/World/Cars/sussy.png" id="1_rg7uh"]
 [ext_resource type="Script" uid="uid://bcp4x4ydms5xo" path="res://Scripts/car.gd" id="1_rxade"]
+[ext_resource type="Texture2D" uid="uid://7su50srsrmph" path="res://Assets/World/Cars/8889_original.png" id="2_rxade"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvu46"]
-size = Vector2(60, 58)
+size = Vector2(80, 58)
 
 [sub_resource type="Gradient" id="Gradient_rxade"]
 
@@ -14,17 +14,22 @@ collision_mask = 4
 script = ExtResource("1_rxade")
 
 [node name="Sussy" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(0, -30.65)
 scale = Vector2(0.32777774, 0.23897636)
-texture = ExtResource("1_rg7uh")
+
+[node name="8889Original" type="Sprite2D" parent="."]
+position = Vector2(2, -31)
+scale = Vector2(0.23444046, 0.22546674)
+texture = ExtResource("2_rxade")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -31)
+position = Vector2(10, -31)
 shape = SubResource("RectangleShape2D_xvu46")
 debug_color = Color(0.80260485, 0, 0.16947848, 0.41960785)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-position = Vector2(-29, -34)
+position = Vector2(-91, -31)
 preprocess = 1.4
 speed_scale = 1.1
 randomness = 0.5

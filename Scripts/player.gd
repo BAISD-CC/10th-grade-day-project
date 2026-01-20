@@ -39,6 +39,9 @@ func _input(event):
 	elif event.is_action_pressed("right"):
 		move(Vector2.RIGHT)
 		player_sprite.rotation_degrees = -90
+	elif event.is_action_pressed("down"):
+		move(Vector2.DOWN)
+		player_sprite.rotation_degrees =180
 func died():
 	Global._save()
 	get_tree().change_scene_to_packed(whereToGoAfterLosing)

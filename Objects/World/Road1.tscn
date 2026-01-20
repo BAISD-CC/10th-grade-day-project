@@ -17,7 +17,6 @@ texture = ExtResource("1_estau")
 centered = false
 
 [node name="Timer" type="Timer" parent="."]
-autostart = true
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(10, 10)

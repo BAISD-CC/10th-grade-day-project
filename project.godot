@@ -25,6 +25,18 @@ window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="viewport"
 
+[file_customization]
+
+folder_colors={
+"res://Fonts/": "green",
+"res://Objects/": "orange",
+"res://Objects/World/": "red",
+"res://Scenes/": "yellow",
+"res://Scripts/": "blue",
+"res://Shaders/": "pink",
+"res://Themes/": "gray"
+}
+
 [global_group]
 
 CanKillPlayer="the name says it all...."

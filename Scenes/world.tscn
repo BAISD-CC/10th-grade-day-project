@@ -33,6 +33,7 @@ position = Vector2(640, 0)
 player = NodePath("../Player")
 
 [node name="Generator" type="Node2D" parent="."]
+position = Vector2(4, 2)
 script = ExtResource("4_8j60k")
 chunks = Array[PackedScene]([ExtResource("5_fo5ed"), ExtResource("7_k7acu"), ExtResource("8_5v1tr")])
 
@@ -43,6 +44,7 @@ autostart = true
 [node name="Heads Up Display" type="CanvasLayer" parent="."]
 
 [node name="HudScore" parent="Heads Up Display" instance=ExtResource("3_5a7ea")]
+texture_filter = 1
 offset_left = -9.0
 offset_top = 1.0
 offset_right = -9.0

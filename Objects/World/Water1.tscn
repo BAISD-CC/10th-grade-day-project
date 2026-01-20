@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dtm0xtl0yvaip"]
 
 [ext_resource type="Shader" uid="uid://bgcghgrwjj8hb" path="res://Shaders/waterWavy.gdshader" id="1_cse5j"]
-[ext_resource type="Script" uid="uid://dvbd0o14pvgjq" path="res://Scripts/road.gd" id="1_xxnp7"]
+[ext_resource type="Script" uid="uid://b0rwwbsyymtre" path="res://Scripts/water.gd" id="1_tn8wv"]
 [ext_resource type="PackedScene" uid="uid://bh2iso4ekd6l1" path="res://Objects/World/WaterLog.tscn" id="2_tn8wv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xxnp7"]
@@ -11,7 +11,7 @@ shader = ExtResource("1_cse5j")
 size = Vector2(1280, 128)
 
 [node name="Water1" type="Node2D" node_paths=PackedStringArray("timer", "markers")]
-script = ExtResource("1_xxnp7")
+script = ExtResource("1_tn8wv")
 timer = NodePath("Timer")
 markers = NodePath("Markers")
 object = ExtResource("2_tn8wv")
@@ -35,6 +35,8 @@ position = Vector2(0, 64)
 position = Vector2(1280, 64)
 
 [node name="DeathZone" type="Area2D" parent="." groups=["CanKillPlayer"]]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
 position = Vector2(640, 64)
@@ -43,3 +45,5 @@ shape = SubResource("RectangleShape2D_cse5j")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(10, 10)
 rect = Rect2(-10, -10, 1280, 128)
+
+[connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]

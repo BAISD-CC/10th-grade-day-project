@@ -2,7 +2,6 @@ extends Control
 
 var main:=load("res://Scenes/world.tscn")
 var about:=load("res://Scenes/About.tscn")
-
 @onready var hi_score_display: Label = $"Hi-Score Display"
 
 func _ready() -> void:
