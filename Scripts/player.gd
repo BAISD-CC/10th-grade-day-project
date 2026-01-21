@@ -8,6 +8,7 @@ var targetPos:Vector2
 var moving :=false
 var onLog:=false
 var currentLog:log=null
+var onWater:=false
 signal death
 func _ready() -> void:
 	targetPos = global_position
@@ -21,6 +22,9 @@ func _process(delta: float) -> void:
 	if onLog == true and currentLog:
 		global_position.x = currentLog.global_position.x
 	if global_position.x <0 or global_position.x > 1280:
+		emit_signal("death")
+		
+	if onWater:
 		emit_signal("death")
 func move(dir:Vector2):
 	if moving:
