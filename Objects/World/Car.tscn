@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://7su50srsrmph" path="res://Assets/World/Cars/8889_original.png" id="2_rxade"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvu46"]
-size = Vector2(80, 58)
+size = Vector2(166, 58)
 
 [sub_resource type="Gradient" id="Gradient_rxade"]
 

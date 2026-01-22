@@ -23,13 +23,14 @@ func _process(delta: float) -> void:
 		global_position.x = currentLog.global_position.x
 	if global_position.x <0 or global_position.x > 1280:
 		emit_signal("death")
-		
 	if onWater:
 		emit_signal("death")
 func move(dir:Vector2):
 	if moving:
 		return
 	targetPos += dir * Global.tileSize
+	if targetPos.y >  592.0:
+		targetPos.y =  592.0
 	moving = true
 	
 #if we wanted to move with arrow key this is where we'd do it, with event
@@ -46,6 +47,7 @@ func _input(event):
 	elif event.is_action_pressed("down"):
 		move(Vector2.DOWN)
 		player_sprite.rotation_degrees =180
+		
 func died():
 	Global._save()
 	get_tree().change_scene_to_packed(whereToGoAfterLosing)
