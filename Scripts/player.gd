@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
-@onready var player_sprite: Sprite2D = $PlayerSprite
 
+@onready var animation_tree: AnimationTree = $AnimatedSprite2D/AnimationTree
 var sprite_preload = preload("res://icon.svg")
 var whereToGoAfterLosing = preload("res://Scenes/Game over.tscn")
 var targetPos:Vector2
@@ -11,8 +11,8 @@ var currentLog:log=null
 var onWater:=false
 signal death
 func _ready() -> void:
+	animation_tree["parameters/conditions/normalPlatyPus"] = true
 	targetPos = global_position
-	player_sprite.texture = sprite_preload
 	death.connect(died)
 func _process(delta: float) -> void:
 	if moving:
@@ -28,6 +28,7 @@ func _process(delta: float) -> void:
 func move(dir:Vector2):
 	if moving:
 		return
+	animation_tree["parameters/BlendSpace2D/blend_position"] = dir
 	targetPos += dir * Global.tileSize
 	if targetPos.y >  592.0:
 		targetPos.y =  592.0
@@ -37,16 +38,12 @@ func move(dir:Vector2):
 func _input(event):
 	if event.is_action_pressed("up"):
 		move(Vector2.UP)
-		player_sprite.rotation_degrees = 0
 	elif event.is_action_pressed("left"):
 		move(Vector2.LEFT)
-		player_sprite.rotation_degrees = 90
 	elif event.is_action_pressed("right"):
 		move(Vector2.RIGHT)
-		player_sprite.rotation_degrees = -90
 	elif event.is_action_pressed("down"):
 		move(Vector2.DOWN)
-		player_sprite.rotation_degrees =180
 		
 func died():
 	Global._save()
