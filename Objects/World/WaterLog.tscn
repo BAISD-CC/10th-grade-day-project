@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bh2iso4ekd6l1"]
 
 [ext_resource type="Script" uid="uid://42ww750q6dny" path="res://Scripts/water_log.gd" id="1_u8kbp"]
-[ext_resource type="Texture2D" uid="uid://xxe8pyg10vvc" path="res://Assets/World/Logs/placeholder.jpeg" id="2_u8kbp"]
+[ext_resource type="Texture2D" uid="uid://oloibdvenvwj" path="res://Assets/World/Logs/Log.png" id="2_u8kbp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvu46"]
 size = Vector2(120, 122)
