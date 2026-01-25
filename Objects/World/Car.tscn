@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://hs1xpo1ok3t3"]
+[gd_scene load_steps=6 format=3 uid="uid://hs1xpo1ok3t3"]
 
 [ext_resource type="Script" uid="uid://bcp4x4ydms5xo" path="res://Scripts/car.gd" id="1_rxade"]
+[ext_resource type="Texture2D" uid="uid://die3gbhw3aiib" path="res://Assets/World/Cars/Smog.png" id="2_mpwg3"]
 [ext_resource type="Texture2D" uid="uid://ca0wr4ogq2j7f" path="res://Assets/World/Cars/Car.png" id="2_rxade"]
 
 [sub_resource type="Gradient" id="Gradient_rxade"]
@@ -15,17 +16,21 @@ script = ExtResource("1_rxade")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(-124.42957, -9.683716)
-preprocess = 1.4
+texture = ExtResource("2_mpwg3")
+lifetime = 1.01
 speed_scale = 1.1
-randomness = 0.5
-lifetime_randomness = 0.4
 gravity = Vector2(-300, -100)
-damping_min = 12.844
-damping_max = 23.853
+linear_accel_max = 62.16
+radial_accel_min = -20.18
+tangential_accel_min = -13.0
+tangential_accel_max = 0.55
+damping_min = 9.017
+damping_max = 35.78
 angle_min = -13.0
-scale_amount_min = 5.0
-scale_amount_max = 20.0
+scale_amount_min = 0.1
 color_ramp = SubResource("Gradient_rxade")
+hue_variation_min = 0.44
+hue_variation_max = 0.44
 
 [node name="8889Original" type="Sprite2D" parent="."]
 position = Vector2(-0.42957306, -28.683716)

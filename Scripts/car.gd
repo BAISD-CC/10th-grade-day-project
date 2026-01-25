@@ -15,10 +15,10 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	velocity.x =SPEED  * dir  + (Global.score * 2)
 	
-	if facing_right and position.x >1280:
+	if facing_right and position.x >1290:
 		position.x =0
 		randomizeSpeed()
-	elif not facing_right and position.x < 0:
+	elif not facing_right and position.x < -10:
 		position.x =1280
 		randomizeSpeed()
 	move_and_slide()
