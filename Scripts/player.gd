@@ -11,7 +11,7 @@ var currentLog:log=null
 var onWater:=false
 signal death
 func _ready() -> void:
-	animation_tree["parameters/conditions/secretAgent"] = true
+	animation_tree["parameters/conditions/normalPlatyPus"] = true
 	targetPos = global_position
 	death.connect(died)
 func _process(delta: float) -> void:
