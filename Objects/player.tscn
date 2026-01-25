@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://qi7lac0jxkm6"]
+[gd_scene load_steps=35 format=3 uid="uid://qi7lac0jxkm6"]
 
 [ext_resource type="Script" uid="uid://tolur6igiq5p" path="res://Scripts/player.gd" id="1_3y5cq"]
 [ext_resource type="Texture2D" uid="uid://dyrwym0hm8nxw" path="res://Assets/World/Player/Perry.png" id="2_3y5cq"]
@@ -78,7 +78,28 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3y5cq"]
+animation = &"PerryFront"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2i4gt"]
+animation = &"PerryLeft"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0ad8t"]
+animation = &"PerryBack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x20fu"]
+animation = &"PerryRight"
+
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_3n8j0"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_3y5cq")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_2i4gt")
+blend_point_1/pos = Vector2(-1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_0ad8t")
+blend_point_2/pos = Vector2(0, -1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_x20fu")
+blend_point_3/pos = Vector2(1, 0)
+blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hyl1l"]
 animation = &"Forward"
@@ -208,11 +229,87 @@ tracks/0/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_3y5cq"]
+resource_name = "PerryFront"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"PerryForward"]
+}
+
+[sub_resource type="Animation" id="Animation_2i4gt"]
+resource_name = "PerryBack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"PerryBack"]
+}
+
+[sub_resource type="Animation" id="Animation_0ad8t"]
+resource_name = "PerryLeft"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"PerryLeft"]
+}
+
+[sub_resource type="Animation" id="Animation_x20fu"]
+resource_name = "PerryRight"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"PerryLeft"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ctpi4"]
 _data = {
 &"Back": SubResource("Animation_vx5yh"),
 &"Forward": SubResource("Animation_kl1fw"),
 &"Left": SubResource("Animation_1sbjj"),
+&"PerryBack": SubResource("Animation_2i4gt"),
+&"PerryFront": SubResource("Animation_3y5cq"),
+&"PerryLeft": SubResource("Animation_0ad8t"),
+&"PerryRight": SubResource("Animation_x20fu"),
 &"RESET": SubResource("Animation_yxlei"),
 &"Right": SubResource("Animation_tvmpb")
 }
@@ -229,8 +326,9 @@ collision_mask = 0
 script = ExtResource("1_3y5cq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -52)
 sprite_frames = SubResource("SpriteFrames_f7am4")
-animation = &"Forward"
+animation = &""
 
 [node name="AnimationTree" type="AnimationTree" parent="AnimatedSprite2D"]
 tree_root = SubResource("AnimationNodeStateMachine_cfctp")
@@ -239,7 +337,7 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/normalPlatyPus = false
 parameters/conditions/secretAgent = false
 parameters/BlendSpace2D/blend_position = Vector2(0, 0)
-"parameters/BlendSpace2D 2/blend_position" = Vector2(0, 0)
+"parameters/BlendSpace2D 2/blend_position" = Vector2(-0.012690365, 0.031088114)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
 libraries = {

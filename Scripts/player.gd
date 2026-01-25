@@ -11,7 +11,7 @@ var currentLog:log=null
 var onWater:=false
 signal death
 func _ready() -> void:
-	animation_tree["parameters/conditions/normalPlatyPus"] = true
+	animation_tree["parameters/conditions/secretAgent"] = true
 	targetPos = global_position
 	death.connect(died)
 func _process(delta: float) -> void:
@@ -29,6 +29,7 @@ func move(dir:Vector2):
 	if moving:
 		return
 	animation_tree["parameters/BlendSpace2D/blend_position"] = dir
+	animation_tree["parameters/BlendSpace2D 2/blend_position"] = dir
 	targetPos += dir * Global.tileSize
 	if targetPos.y >  592.0:
 		targetPos.y =  592.0
