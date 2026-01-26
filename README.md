@@ -15,4 +15,6 @@ In this activity, you will be able to play around with how the game functions an
 A platypus? PERRY THE PLATYPUS?!?!
 
 1. Locate Player.gd found in the Script folder
-2. In Player.gd, Find the line ```animation_tree["parameters/conditions/normalPlatyPus"] = true``` and change it to {animation_tree["parameters/conditions/secretAgent"] = true}
+2. In Player.gd, Find the line ```var whichAnimations := "normalPlatyPus"```  and change it to ```var whichAnimations := "secretAgent```
+3. Run the game and see the results (:
+4. Perry the Platypus!?
