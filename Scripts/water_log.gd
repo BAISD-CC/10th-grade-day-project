@@ -12,4 +12,4 @@ func _on_jump_box_body_exited(body: Node2D) -> void:
 		var player:Player = body
 		player.onLog = false
 		player.currentLog = null
-		body.global_position.x = round(global_position.x/Global.tileSize) * Global.tileSize
+		body.targetPos.x = round(global_position.x/Global.tileSize) * Global.tileSize

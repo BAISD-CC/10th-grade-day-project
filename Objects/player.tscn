@@ -330,7 +330,7 @@ texture_filter = 1
 texture_repeat = 1
 position = Vector2(0, -52)
 sprite_frames = SubResource("SpriteFrames_f7am4")
-animation = &"PerryForward"
+animation = &"Forward"
 
 [node name="AnimationTree" type="AnimationTree" parent="AnimatedSprite2D"]
 tree_root = SubResource("AnimationNodeStateMachine_cfctp")
