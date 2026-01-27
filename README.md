@@ -1,5 +1,5 @@
 # 10th-grade-day-project
-Project made for Bay Arenic ISD Career Center.
+Project made for Bay Arenic ISD Career Center. It was created by a first year student name Nickolas.
 
 
 # What can you do?
@@ -19,3 +19,12 @@ A platypus? PERRY THE PLATYPUS?!?!
 2. In Player.gd, Find the line ```var whichAnimations := "normalPlatyPus"```  and change it to ```var whichAnimations := "secretAgent```
 3. Run the game and see the results (:
 4. Perry the Platypus!?
+
+# Funny gameplay...
+Hehe he gaming.
+
+1. Locate title_screen.gd in the Script folder
+2. In title_screen.gd find ```var about:=load("res://Scenes/About.tscn")```.
+3. Change ```var about:=load("res://Scenes/About.tscn")``` to ```var about:=load("res://Scenes/seebecks_Gameplay.tscn")```
+4. Run the game.
+5. Click on About.
