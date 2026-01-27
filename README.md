@@ -28,3 +28,8 @@ Hehe he gaming.
 3. Change ```var about:=load("res://Scenes/About.tscn")``` to ```var about:=load("res://Scenes/seebecks_Gameplay.tscn")```
 4. Run the game.
 5. Click on About.
+
+# Changing Car Speed
+Zooom.
+1. Locate car.gd in the Script folder
+2. In car.gd, change ```var SPEED = 600``` to something slower or bigger, e.g ```var SPEED = 400``` for slower.
