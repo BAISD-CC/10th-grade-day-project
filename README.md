@@ -29,7 +29,8 @@ Hehe he gaming.
 4. Run the game.
 5. Click on About.
 
-# Changing Car Speed
+# Changing Lane Speed
 Zooom.
-1. Locate car.gd in the Script folder
-2. In car.gd, change ```var SPEED = 600``` to something slower or bigger, e.g ```var SPEED = 400``` for slower.
+1. Locate road.gd in the Script folder
+2. In road.gd, change ```var laneSpeed = randf_range(450,600)``` to new range, first value is the minimum, and second value is the maximum. e.g ```var laneSpeed = randf_range(200,400)``` for a slower range beteween 200 and 400 speed
+3. Run the Game.
