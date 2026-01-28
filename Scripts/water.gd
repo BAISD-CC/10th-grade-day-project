@@ -1,5 +1,5 @@
 extends road
-
+class_name water
 
 
 
@@ -8,7 +8,7 @@ func _on_death_zone_body_entered(body: Node2D) -> void:
 		var player:Player = body
 		if player.onLog ==false and player.currentLog == null:
 			player.onWater = true
-			
+		
 
 
 func _on_death_zone_body_exited(body: Node2D) -> void:

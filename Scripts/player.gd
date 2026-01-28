@@ -2,35 +2,45 @@ extends CharacterBody2D
 class_name Player
 
 @onready var animation_tree: AnimationTree = $AnimatedSprite2D/AnimationTree
-var sprite_preload = preload("res://icon.svg")
 var whereToGoAfterLosing = preload("res://Scenes/Game over.tscn")
 var targetPos:Vector2
 var moving :=false
 var onLog:=false
 var currentLog:log=null
 var onWater:=false
+var logffset :float = 0
+var whichAnimations :="normalPlatyPus"
+
 signal death
+
 func _ready() -> void:
-	animation_tree["parameters/conditions/normalPlatyPus"] = true
+	animation_tree["parameters/conditions/" + whichAnimations] = true
 	targetPos = global_position
 	death.connect(died)
 func _process(delta: float) -> void:
+	
 	if moving:
 		global_position = global_position.move_toward(targetPos, 2000 * delta)
 		if global_position == targetPos:
 			moving=false
-	if onLog == true and currentLog:
-		global_position.x = currentLog.global_position.x
+	if onLog == true and currentLog and not moving:
+		global_position.x = currentLog.global_position.x + logffset
 	if global_position.x <0 or global_position.x > 1280:
 		emit_signal("death")
-	if onWater:
+	elif onWater == true and not onLog and not moving:
 		emit_signal("death")
+	
+
 func move(dir:Vector2):
 	if moving:
 		return
 	animation_tree["parameters/BlendSpace2D/blend_position"] = dir
 	animation_tree["parameters/BlendSpace2D 2/blend_position"] = dir
 	targetPos += dir * Global.tileSize
+	if onLog:
+		onLog = false
+		currentLog = null
+		logffset = 0
 	if targetPos.y >  592.0:
 		targetPos.y =  592.0
 	moving = true

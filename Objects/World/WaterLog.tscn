@@ -10,7 +10,7 @@ size = Vector2(120, 122)
 size = Vector2(128, 117)
 
 [node name="Log" type="CharacterBody2D"]
-collision_layer = 0
+collision_layer = 16
 collision_mask = 0
 script = ExtResource("1_u8kbp")
 
