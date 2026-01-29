@@ -15,7 +15,7 @@ func _ready() -> void:
 	timer.timeout.connect(_on_timer_timeout)
 	dir = randi_range(0,1)
 	print(var_to_str(counter))
-	timer.start(randf_range(1.5,2.5))
+	timer.start(randf_range(1.2,1.8))
 	if counter < maxAmountRoads:
 		counter +=1
 	
