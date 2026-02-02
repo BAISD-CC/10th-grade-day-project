@@ -9,7 +9,7 @@ static var counter := 0
 @export_category("Object to load")
 @export var object:PackedScene
 var dir:int
-var laneSpeed = randf_range(450,600)
+var laneSpeed = randf_range(500,620)
 
 func _ready() -> void:
 	timer.timeout.connect(_on_timer_timeout)

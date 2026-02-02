@@ -10,7 +10,7 @@ var currentLog:log=null
 var onWater:=false
 var logffset :float = 0
 var whichAnimations :="normalPlatyPus"
-
+var SPEED = 500
 signal death
 
 func _ready() -> void:
@@ -19,18 +19,21 @@ func _ready() -> void:
 	death.connect(died)
 func _process(delta: float) -> void:
 	
-	if moving:
-		global_position = global_position.move_toward(targetPos, 2000 * delta)
+	if Global.debug != true:
+		if moving:
+			global_position = global_position.move_toward(targetPos, 2000 * delta)
 		if global_position == targetPos:
 			moving=false
-	if onLog == true and currentLog and not moving:
-		global_position.x = currentLog.global_position.x + logffset
-	if global_position.x <0 or global_position.x > 1280:
-		emit_signal("death")
-	elif onWater == true and not onLog and not moving:
-		emit_signal("death")
-	
-
+		if onLog == true and currentLog and not moving:
+			global_position.x = currentLog.global_position.x + logffset
+		if global_position.x <0 or global_position.x > 1280:
+			emit_signal("death")
+		elif onWater == true and not onLog and not moving:
+			emit_signal("death")
+	else:
+		var dir := Input.get_vector("left","right","up","down")
+		velocity = SPEED * dir
+		move_and_slide()
 func move(dir:Vector2):
 	if moving:
 		return
@@ -63,5 +66,6 @@ func died():
 
 
 func _entered_hurtbox(body: Node2D) -> void:
-	if body is car:
-		emit_signal("death")
+	if Global.debug !=true:
+		if body is car:
+			emit_signal("death")

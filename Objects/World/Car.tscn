@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://hs1xpo1ok3t3"]
+[gd_scene load_steps=7 format=3 uid="uid://hs1xpo1ok3t3"]
 
 [ext_resource type="Script" uid="uid://bcp4x4ydms5xo" path="res://Scripts/car.gd" id="1_rxade"]
 [ext_resource type="Texture2D" uid="uid://die3gbhw3aiib" path="res://Assets/World/Cars/Smog.png" id="2_mpwg3"]
 [ext_resource type="Texture2D" uid="uid://ca0wr4ogq2j7f" path="res://Assets/World/Cars/Car.png" id="2_rxade"]
+[ext_resource type="AudioStream" uid="uid://bmbfy61odbf2l" path="res://Sounds/carVroomVroom.wav" id="4_423pb"]
 
 [sub_resource type="Gradient" id="Gradient_rxade"]
 
@@ -15,6 +16,7 @@ collision_mask = 4
 script = ExtResource("1_rxade")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+texture_filter = 1
 position = Vector2(-124.42957, -9.683716)
 texture = ExtResource("2_mpwg3")
 lifetime = 1.01
@@ -33,6 +35,8 @@ hue_variation_min = 0.44
 hue_variation_max = 0.44
 
 [node name="8889Original" type="Sprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 1
 position = Vector2(-0.42957306, -28.683716)
 scale = Vector2(1.207408, 1.1611919)
 texture = ExtResource("2_rxade")
@@ -41,3 +45,8 @@ texture = ExtResource("2_rxade")
 position = Vector2(-6.9647865, -16)
 shape = SubResource("RectangleShape2D_xvu46")
 debug_color = Color(0.80260485, 0, 0.16947848, 0.41960785)
+
+[node name="vroomVroom" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_423pb")
+pitch_scale = 0.92
+autoplay = true

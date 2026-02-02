@@ -8,6 +8,7 @@ const maxTimeRequired :=2.5
 var score := 0
 var roadCount :=0
 var highScore :=0
+var debug :=false
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		get_tree().quit(0)
