@@ -8,10 +8,14 @@ var targetPos:Vector2
 var moving :=false
 var onLog:=false
 var currentLog:log=null
+var currentCar :car = null
+var carOffset:=0
 var onWater:=false
 var logffset :float = 0
 var SPEED = 500
 signal death
+@onready var car_smack: AudioStreamPlayer2D = $carSmack
+@onready var deathTimer: Timer = $death
 
 
 #Can be changed to another player skin by changing what's in quotations.  
@@ -24,6 +28,7 @@ func _ready() -> void:
 	animation_tree["parameters/conditions/" + whichAnimations] = true
 	targetPos = global_position
 	death.connect(died)
+	deathTimer.timeout.connect(timeRunOut)
 func _process(delta: float) -> void:
 	#Normal movement
 	if Global.debug != true:
@@ -37,12 +42,15 @@ func _process(delta: float) -> void:
 			emit_signal("death")
 		elif onWater == true and not onLog and not moving:
 			emit_signal("death")
+		if currentCar!= null:
+			global_position.x = currentCar.global_position.x - carOffset
+			global_position.y = currentCar.global_position.y
 	#debug movement
 	else:
 		var dir := Input.get_vector("left","right","up","down")
 		velocity = SPEED * dir
 		move_and_slide()
-#changes the target position to the new on, Direction, and 
+#changes the target position to the new on, Direction, and wwwwwwwwwww
 func move(dir:Vector2):
 	if moving:
 		return
@@ -71,9 +79,14 @@ func died():
 	Global._save()
 	get_tree().change_scene_to_packed(whereToGoAfterLosing)
 
-
+func timeRunOut():
+	emit_signal("death")
 #Smacks the player with a cars if it got hit from one 
 func _entered_hurtbox(body: Node2D) -> void:
 	if Global.debug !=true:
-		if body is car:
-			emit_signal("death")
+		if body is car and currentCar == null:
+			car_smack.play()
+			carOffset = body.global_position.x -global_position.x
+			currentCar = body
+			deathTimer.start(.5)
+			

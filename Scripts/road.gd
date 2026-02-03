@@ -23,6 +23,7 @@ func _ready() -> void:
 		counter +=1
 #creates cars based on timer 
 func _on_timer_timeout() -> void:
+	timer.start(randf_range(1.2,1.8))
 	var object = self.object.instantiate()
 	var children = markers.get_children()
 	object.position = children[dir].position

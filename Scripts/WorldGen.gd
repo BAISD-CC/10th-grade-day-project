@@ -1,7 +1,7 @@
 extends Node2D
 
 
-#Stay Away from this, it's what actually controls the world gen... 
+ 
 @export var chunks:Array[PackedScene] 
 @onready var generate: Timer = $generate
 @onready var roads: Node2D = $"../Roads"

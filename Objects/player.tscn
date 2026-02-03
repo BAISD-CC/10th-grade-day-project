@@ -1,7 +1,8 @@
-[gd_scene load_steps=35 format=3 uid="uid://qi7lac0jxkm6"]
+[gd_scene load_steps=36 format=3 uid="uid://qi7lac0jxkm6"]
 
 [ext_resource type="Script" uid="uid://tolur6igiq5p" path="res://Scripts/player.gd" id="1_3y5cq"]
 [ext_resource type="Texture2D" uid="uid://dyrwym0hm8nxw" path="res://Assets/World/Player/Perry.png" id="2_3y5cq"]
+[ext_resource type="AudioStream" uid="uid://b8373n7wd1lrr" path="res://Sounds/446135__justinvoke__car-landhit.wav" id="3_2i4gt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2i4gt"]
 atlas = ExtResource("2_3y5cq")
@@ -330,7 +331,7 @@ texture_filter = 1
 texture_repeat = 1
 position = Vector2(0, -52)
 sprite_frames = SubResource("SpriteFrames_f7am4")
-animation = &"Forward"
+animation = &""
 
 [node name="AnimationTree" type="AnimationTree" parent="AnimatedSprite2D"]
 tree_root = SubResource("AnimationNodeStateMachine_cfctp")
@@ -358,5 +359,10 @@ collision_mask = 8
 position = Vector2(0, -64)
 shape = SubResource("RectangleShape2D_2i4gt")
 debug_color = Color(0.69235945, 0.49715728, 1.92523e-07, 0.41960785)
+
+[node name="carSmack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_2i4gt")
+
+[node name="death" type="Timer" parent="."]
 
 [connection signal="body_entered" from="Hurtbox" to="." method="_entered_hurtbox"]
