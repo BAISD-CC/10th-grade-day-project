@@ -1,6 +1,13 @@
 # 10th-grade-day-project
 Project made for Bay Arenic ISD Career Center. It was created by a first year student name Nickolas.
 
+# Setting Up the Project -- Assume this is already done for you if you're a 8/10th grader. 
+1. Download Godot 4.5.1 or later fromt the Godot Website https://godotengine.org/
+2. Download the zip from github
+3. Open Godot and select import
+4. Locate the downloaded project's godot.project
+5. Project should now be ready for editing.
+
 
 # What can you do?
 In this activity, you will be able to play around with how the game functions and change how the player look.
